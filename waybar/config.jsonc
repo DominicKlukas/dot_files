@@ -1,0 +1,57 @@
+{
+    "layer": "top",
+    "position": "top",
+    "mod": "dock",
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+    "height": 40,
+    "modules-left": ["hyprland/workspaces"],
+    "modules-right": ["clock","battery","backlight","pulseaudio"],
+    "hyprland/window": {
+        "format": "{}"
+    },
+    "hyprland/workspaces": {
+		"sort-by-number": true
+    },
+    
+    "clock": {
+  	"interval": 60,
+  	"format": "{:%Y/%m/%d %H:%M}",
+  	"max-length": 25
+    },
+
+
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{percent}%",
+        "on-scroll-up": "brightnessctl set 1%+",
+        "on-scroll-down": "brightnessctl set 1%-",
+        "min-length": 6
+    },
+
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 20
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt": "{time} {icon}"
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "tooltip": false,
+        "format-muted": "Muted",
+        "on-click": "pamixer -t",
+        "on-scroll-up": "pamixer -i 5",
+        "on-scroll-down": "pamixer -d 5",
+        "scroll-step": 5,
+        "format-icons": {
+            "default": ["", "", ""]
+        }
+    },
+}
